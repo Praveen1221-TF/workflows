@@ -21,6 +21,20 @@ jobs:
       - name: list files
         run: ls -l
 
+      - name: get the version
+        run: echo "APP_VERSION=${GITHUB_SHA::9}" >> "$GITHUB_ENV" #if you store it in the GITHUB_ENV, you can use it in other steps in the same job
+      
       - name: print inputs
-        run: echo ${{ inputs.project }}
+        run: |
+          echo ${{ inputs.project }}
+          echo "version: ${APP_VERSION}"
+
+      - name: install dependencies
+        run: npm install
+
+      - name: run unit tests
+        run: echo "run unti tests"
+      
+      - name: docker build
+        run: docker build -t 008616580268.dkr.ecr.us-east-1.amazonaws.com/roboshop/catalogue:latest
 
