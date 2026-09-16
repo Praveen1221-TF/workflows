@@ -11,6 +11,9 @@ on:
       environment:
         required: true
         type: string
+env:
+  ACC_ID: 008616580268
+
 jobs:
   feature-nodejs-pipeline:
     runs-on: self-hosted
@@ -38,5 +41,7 @@ jobs:
         run: echo "run unti tests"
       
       - name: docker build
-        run: docker build -t 008616580268.dkr.ecr.us-east-1.amazonaws.com/roboshop/catalogue:latest
+        run: |
+          docker build -t ${ACC_ID}.dkr.ecr.us-east-1.amazonaws.com/${{ inputs.project }}/${{ inputs.component }}:${APP_VERSION}
+          docker images   
 
