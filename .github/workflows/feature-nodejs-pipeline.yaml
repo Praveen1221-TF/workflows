@@ -12,7 +12,7 @@ on:
         required: true
         type: string
 env:
-  ACC_ID: 008616580268
+  ACC_ID: "008616580268"
 
 jobs:
   feature-nodejs-pipeline:
