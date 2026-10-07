@@ -60,5 +60,3 @@ jobs:
           docker push  ${ACC_ID}.dkr.ecr.us-east-1.amazonaws.com/${{ inputs.project }}/${{ inputs.component }}:${APP_VERSION} 
           
 
-
-
